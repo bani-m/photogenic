@@ -1,0 +1,41 @@
+* {
+    margin: 1px;
+    padding: 1px;
+}
+li {
+    display: inline-block;
+}
+.left_nav {
+    float: left;
+	display: flex
+}
+
+.right_nav {
+    float: right;
+}
+
+.header:after {
+    content:"";
+    display:block;
+    clear:both;
+}
+
+.content{
+    text-align : center ;
+}
+
+form {
+    margin-top: 8px
+
+}
+
+.header{
+    background-color: aliceblue;
+}
+
+.flash {
+  color: white;
+  padding-top: 10px;
+}
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
