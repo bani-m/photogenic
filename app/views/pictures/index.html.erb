@@ -5,8 +5,10 @@
   <p>タイトル:<%= picture.title %></p>
   <p>本文:<%= picture.content %></p>
   <p>写真:<%= picture.photo_image %></p>
+  <p><%= picture.user_id %></p>
   <%= link_to "写真を編集する", edit_picture_path(picture.id) %>
-  <%= link_to '写真を削除する', picture_path(picture.id), method: :delete, data: { confirm: '本当に削除していいですか？'} %>
+　<%= link_to '写真を削除する', picture_path(picture.id), method: :delete, data: { confirm: '本当に削除していいですか？'} %>
+
 <% end %>
 
 <%= link_to "写真を作成する", new_picture_path %>
