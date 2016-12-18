@@ -1,20 +1,35 @@
-<p id="notice"><%= notice %></p>
+<!-- ここから追加 -->
+<%= form_for(@picture, html: {multipart: true}) do |f| %>
+<!-- ここまで追加 -->
 
-<%= form_for(@picture) do |f| %>
-  <%= f.error_messages! %>
+  <% if @picture.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= pluralize(@picturet.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-<%= form_for(@picture) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br>
-  <%= f.label :content %>
-  <%= f.text_field :content %>
-  <br>
-  <%= f.label :photo_image %>
-  <%= f.text_field :photo_image %>
-  <%= f.submit %>
-<% end %>
+      <ul>
+      <% @picturet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to "写真一覧画面にもどる", pictures_path %>
+<!-- ここから追加 -->
+  <div class="field">
+    <%= f.label :photo_image %>
+    <%= f.file_field :photo_image %>
+  </div>
+<!--ここまで追加-->
 
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>
