@@ -4,8 +4,9 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
 }
-  resources :pictures, only: [:index, :new, :create, :edit, :update, :destroy]
   root to: "top#index"
+  resources :pictures, only: [:index, :new, :create, :edit, :update, :destroy]
+
   if Rails.env.development?
   mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end

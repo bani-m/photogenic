@@ -9,8 +9,8 @@ module ApplicationHelper
     end
     image_tag(img_url, alt: user.name)
   end
-
-  module ActionView
+end
+module ActionView
   module Helpers
     module FormHelper
       def error_messages!(object_name, options = {})
