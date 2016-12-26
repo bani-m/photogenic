@@ -7,8 +7,16 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   storage :file
-  # storage :fog
 
+  process convert: 'jpg'
+
+  def filename
+    super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
+  end
+  # storage :fog
+  def extension_white_list
+    %w(jpg jpeg gif png)
+  end
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
