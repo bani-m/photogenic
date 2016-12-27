@@ -4,6 +4,32 @@
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
 </head>
+<div class="container-fluid">
+	<div class="row header">
+		<div class="col-xl-6 left_nav">
+			<h1>insta9</h1>
+        <form class="submit">
+           <input type="text" />
+           <button type="button" class="btn active disabled btn-info">
+				   送信
+			    </button>
+        </form>
+		</div>
+		<div class="col-xl-6 right_nav" >
+			<ul>
+        <% if user_signed_in? %>
+        <li><%= link_to '投稿', new_picture_path %></li>
+        <li><%= link_to 'マイページ', edit_user_registration_path %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+        <li><%= link_to 'ログイン', new_user_session_path  %></li>
+        <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+      <% end %>
+			</ul>
+		</div>
+	</div>
+	</div>
+</div>
 <div class="container">
   <div class="wrapper col-lg-10 col-lg-offset-4 col-sm-10">
     <p><%= notice %></p>
@@ -14,7 +40,7 @@
 <div class="row">
   <h4><strong><%= picture.title %></strong></h4>
   <p>本文:<%= picture.content %></p>
-  <p>写真:<%= image_tag  picture.photo_image %></p>
+  <p>写真:<%= image_tag picture.photo_image %></p>
   <p><%= picture.user_id %></p>
   <%= link_to "写真を編集する", edit_picture_path(picture.id), class: 'btn btn-default btn-sm btn-success' %>
 　<%= link_to '写真を削除する', picture_path(picture.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>

@@ -27,7 +27,7 @@ module ActionView
 
         html.html_safe
       end
-
+      
       def error_css(object_name, method, options = {})
         resource = self.instance_variable_get("@#{object_name}")
         return '' if resource.errors.empty?

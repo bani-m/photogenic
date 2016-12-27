@@ -2,17 +2,8 @@
 <%= form_for(@picture, html: {multipart: true}) do |f| %>
 <!-- ここまで追加 -->
 
-  <% if @picture.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger">
-      <h2><%= pluralize(@picturet.errors.count, "error") %> prohibited this post from being saved:</h2>
+<%= f.error_messages! %>
 
-      <ul>
-      <% @picturet.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
 <!-- ここから追加 -->
   <div class="field">
