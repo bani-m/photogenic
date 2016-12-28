@@ -31,6 +31,15 @@ form {
 
 .header{
     background-color: aliceblue;
+
+}
+
+html {
+	overflow: auto;
+}
+
+body {
+	overflow: hidden;
 }
 
 .flash {
